@@ -1,0 +1,19 @@
+{
+  "name": "world-class-gamer",
+  "version": "1.0.0",
+  "description": "gamer website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximilianPorter/world-class-gamer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximilianPorter/world-class-gamer/issues"
+  },
+  "homepage": "https://github.com/MaximilianPorter/world-class-gamer#readme"
+}
