@@ -1,3 +1,7 @@
+const API_KEY = `7AE1DDAD7927C83EF0B9882528496E56`;
+const ACCESS_TOKEN = `6f33493f823b8d7490a72ebb7394cf71`;
+const PROFILE_ID = `76561198091780294`;
+
 // enable cors-anywhere automatically
 // instead of going to the url and clicking 'request temporary access to the demo server'
 (function () {
@@ -39,8 +43,14 @@ btnRequestData.addEventListener("click", () => {
 });
 
 function requestData() {
-  Promise.all([getData(ownedGames, "owned games: ")]).then((data) =>
-    console.log(data)
+  Promise.all([
+    // getData(playerSummary, "key player summary: "),
+    getData(
+      `https://api.steampowered.com/IPlayerService/SetProfileTheme/v1/?key=${API_KEY}&theme=1`,
+      "other: "
+    ),
+  ]).then((data) =>
+    data.forEach((call) => console.log(call.msgHeader, call.data))
   );
   // Promise.all([
   //   getData(playerSummary, "Summary: "),
@@ -49,7 +59,7 @@ function requestData() {
   //   getData(playerStatsForGame, "Stats for RL: "),
   //   getData(playerRecentGames, "Recent Games: "),
   // ]).then((data) => {
-  //   console.log(data);
+  //   data.forEach((call) => console.log(call.msgHeader, call.data))
   // });
 }
 
@@ -62,7 +72,7 @@ async function getData(url, msgHeader) {
     });
     const data = await response.json();
     // console.log(msgHeader, data);
-    return data;
+    return { data, msgHeader };
   } catch (error) {
     console.error(`❌❌❌SOME ERROR HAPPENED: ${error}`);
   }
