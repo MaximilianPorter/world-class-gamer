@@ -5,11 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.17.1/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.17.1/firebase-auth-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-database-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-firestore-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-functions-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-messaging-compat.js"
+    ></script>
+    <script defer src="/__/firebase/9.17.1/firebase-storage-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-analytics-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-remote-config-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.17.1/firebase-performance-compat.js"
+    ></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script defer src="./config.js"></script>
     <script type="module" src="script.js"></script>
     <title>Gamer</title>
   </head>
   <body>
-    <h1>GAMER TIME LETS GOOOOO</h1>
+    <h1>GREATNESS LIES AHEAD</h1>
+    <button type="button" class="btn-request-data">REQUEST DATA</button>
   </body>
 </html>
