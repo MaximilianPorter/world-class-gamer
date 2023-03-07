@@ -152,7 +152,7 @@ function fillTopGames(data) {
     const timePlayedHours =
       (playtimeMinutes / 60).toFixed(0) <= 0
         ? ""
-        : `${(playtimeMinutes / 60).toFixed(0)} hours `;
+        : `${(playtimeMinutes / 60).toFixed(0)} hours - `;
     const timePlayedMinutes =
       (playtimeMinutes % 60).toFixed(0) <= 0
         ? ""
@@ -171,9 +171,9 @@ function fillTopGames(data) {
       <h3 class="game-title">${gameName}</h3>
       <div class="more-game-info">
         <p class="info-game-playtime">${timePlayedHours}${timePlayedMinutes}</p>
-        <p class="info-game-last-played">Last played ${getTimeAgo(
+        <p class="info-game-last-played">Last played <strong>${getTimeAgo(
           lastPlayed
-        )}</p>
+        )}</strong></p>
         <p class="info-game-description">
           ${gameInfo.short_description}
         </p>
@@ -182,7 +182,7 @@ function fillTopGames(data) {
           href="https://store.steampowered.com/app/${gameId}"
           class="info-game-storepage"
           target="_blank"
-          >${gameName} Store Page</a
+          >Store Page</a
         >
       </div>
     </div>

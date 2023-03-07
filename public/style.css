@@ -109,6 +109,7 @@
 .social-link-item:active,
 .social-link-item:focus-visible {
   transform: scale(1.1);
+  color: var(--primary);
 }
 
 .social-link-icon {
@@ -125,14 +126,22 @@
   font-size: 2.4rem;
   font-weight: 700;
 
-  padding-bottom: 1rem;
   margin: 5rem 2rem 1rem 2rem;
-  border-bottom: 5px solid var(--white-light);
+}
+.owned-games-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: var(--white-light);
+  margin-top: 1rem;
+
+  border-radius: 9999px;
 }
 
 .section--games-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap: 2rem;
 
   margin: 0 2rem;
@@ -150,6 +159,7 @@
   background-color: transparent;
   padding: 2rem;
   border-radius: 20px;
+  outline: 0px solid var(--white-light);
   overflow: hidden;
 
   display: flex;
@@ -164,7 +174,7 @@
   --game-item-height: 50rem;
   height: var(--game-item-height);
 
-  transition: background-color 0.7s ease;
+  transition: background-color 0.7s ease, outline 0.2s ease;
 }
 .game-item::before {
   content: "";
@@ -184,6 +194,7 @@
 .game-item:hover,
 .game-item:focus-visible {
   background-color: var(--bg-dark-08);
+  outline: 5px solid var(--white-light);
 }
 
 .game-item:hover > .game-title,
@@ -193,6 +204,12 @@
   transform: translate(-50%, 50%);
   transition-delay: 0s;
 }
+.game-item:hover .game-title::after,
+.game-item:focus-visible .game-title::after {
+  left: -50%;
+  width: 200%;
+}
+
 .game-item:hover > .more-game-info,
 .game-item:focus-visible > .more-game-info {
   margin-top: 5rem;
@@ -238,11 +255,24 @@
   transform: translate(-50%, 0%);
 
   width: 90%;
-  border-bottom: 5px solid var(--white-light);
+  /* border-bottom: 5px solid var(--white-light); */
 
   /* transition: margin 0.5s cubic-bezier(0.68, -0.2, 0.265, 1.2); */
   transition: all 0.5s cubic-bezier(0.68, -0.2, 0.265, 1.2);
   transition-delay: 0.1s;
+}
+.game-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: var(--white-light);
+
+  border-radius: 9999px;
+
+  transition: all 0.3s ease;
 }
 
 .more-game-info {
@@ -257,7 +287,8 @@
 }
 
 .info-game-playtime {
-  text-transform: uppercase;
+  font-weight: 700;
+  /* text-transform: uppercase; */
 }
 .info-game-last-played {
   margin-bottom: 1.6rem;
@@ -265,5 +296,35 @@
 .info-game-description {
   margin-bottom: 1.6rem;
 }
-.info-game-storepage {
+.info-game-storepage:link,
+.info-game-storepage:visited {
+  cursor: pointer;
+  position: relative;
+
+  color: var(--white-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: all 0.3s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+}
+.info-game-storepage:hover,
+.info-game-storepage:active {
+  color: var(--primary);
+}
+
+.info-game-storepage:link::after,
+.info-game-storepage:visited::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+}
+.info-game-storepage:hover::after,
+.info-game-storepage:active::after {
+  width: 100%;
 }

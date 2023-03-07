@@ -2,6 +2,7 @@
   .header {
     flex-direction: column;
     gap: 1.6rem;
+    padding: 0;
   }
   .username-online {
     flex-direction: column;
@@ -14,5 +15,18 @@
   }
   .owned-games-title {
     text-align: center;
+  }
+
+  .section--games-list {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)) !important;
+  }
+}
+
+@media (width < 300px) {
+  html {
+    font-size: 40% !important;
+  }
+  .section--games-list {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)) !important;
   }
 }
