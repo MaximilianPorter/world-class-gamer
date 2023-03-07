@@ -18,6 +18,7 @@ const allowedOrigins = [
 ];
 
 // deploy functions command: `firebase deploy --only "functions,hosting"`
+//
 
 const requestData = async function (url, req, res) {
   try {
