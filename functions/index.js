@@ -4,6 +4,11 @@ const API_KEY = `7AE1DDAD7927C83EF0B9882528496E56`;
 const ACCESS_TOKEN = `6f33493f823b8d7490a72ebb7394cf71`;
 const PROFILE_ID = `76561198091780294`;
 
+const MAX_REQUESTS = 10; // maximum number of requests allowed in a time period
+const TIME_PERIOD = 5000; // time period in milliseconds
+
+let requests = 0; // counter for number of requests
+
 const allowedOrigins = [
   "http://localhost:5000",
   "http://localhost:5001",
@@ -19,9 +24,27 @@ const allowedOrigins = [
 
 const requestData = async function (url, req, res) {
   try {
+    // check if the maximum number of requests has been reached
+    if (requests >= MAX_REQUESTS) {
+      res.status(429).send("Too many requests");
+      return;
+    }
+
+    requests++;
+
+    // limit requests to MAX_REQUESTS per TIME_PERIOD
+    setTimeout(() => {
+      requests--;
+    }, TIME_PERIOD);
+
     const response = await fetch(url);
     const data = await response.json();
     const origin = req.headers.origin;
+
+    res.set("X-RateLimit-Limit", MAX_REQUESTS);
+    res.set("X-RateLimit-Remaining", MAX_REQUESTS - requests);
+    res.set("X-RateLimit-Reset", TIME_PERIOD / 1000);
+
     if (allowedOrigins.includes(origin)) {
       res.set("Access-Control-Allow-Origin", origin);
     } else {
