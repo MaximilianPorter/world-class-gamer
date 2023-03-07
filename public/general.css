@@ -1,0 +1,41 @@
+/* tints and shades */
+/* https://maketintsandshades.com/#003049,#d62828,#f77f00,#fcbf49,#eae2b7 */
+
+:root {
+  --bg-dark-08: #001825dd;
+  --bg-dark-05: #00182599;
+  --bg-dark: #001825;
+  --bg: #003049;
+  --bg-light: #99acb6;
+
+  --primary-dark: #6b1414;
+  --primary: #d62828;
+  --primary-light: #eb9494;
+
+  --secondary-dark: #633300;
+  --secondary: #f77f00;
+  --secondary-light: #fcbf49;
+
+  --white-dark: #75715c;
+  --white: #eae2b7;
+  --white-light: #f9f6e9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--white-light);
+  overflow-x: hidden;
+}
+
+.visually-hidden {
+  display: none !important;
+}
