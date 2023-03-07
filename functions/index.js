@@ -1,8 +1,5 @@
 const functions = require("firebase-functions");
-
-const API_KEY = `7AE1DDAD7927C83EF0B9882528496E56`;
-const ACCESS_TOKEN = `6f33493f823b8d7490a72ebb7394cf71`;
-const PROFILE_ID = `76561198091780294`;
+const secrets = require("./secrets.config.js");
 
 const MAX_REQUESTS = 10; // maximum number of requests allowed in a time period
 const TIME_PERIOD = 5000; // time period in milliseconds
