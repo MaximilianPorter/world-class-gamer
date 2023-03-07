@@ -1,4 +1,4 @@
-@media (width < 600px) {
+@media (width < 800px) {
   .header {
     flex-direction: column;
     gap: 1.6rem;
@@ -18,7 +18,7 @@
   }
 
   .section--games-list {
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)) !important;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -26,7 +26,10 @@
   html {
     font-size: 40% !important;
   }
-  .section--games-list {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)) !important;
+}
+
+@media (width < 200px) {
+  html {
+    font-size: 30% !important;
   }
 }
