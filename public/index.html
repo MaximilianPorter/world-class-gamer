@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- idk what this is -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- STYLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="mediaQueries.css" />
+    <link rel="stylesheet" href="general.css" />
     <link rel="stylesheet" href="style.css" />
+
+    <!-- FIREBASE -->
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/9.17.1/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -46,12 +59,145 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <!-- <script defer src="./config.env"></script> -->
-    <script type="module" src="script.js"></script>
+    <script type="module" src="receivingData.js"></script>
+    <script type="module" src="domManipulation.js"></script>
     <title>Gamer</title>
   </head>
   <body>
-    <h1>GREATNESS LIES AHEAD</h1>
-    <button type="button" class="btn-request-data">REQUEST DATA</button>
+    <form action="" class="cookies-request-form" aria-hidden="false">
+      <p class="cookies-request--text">
+        I don't use any personal info from you. I literally don't even use
+        cookies yet. I just want to know if you're cool with it. Accept cookies?
+      </p>
+      <div class="cookies-request-btns">
+        <button type="submit" name="accept" class="btn-cookies">Accept</button>
+        <button type="submit" name="decline" class="btn-cookies">
+          Decline
+        </button>
+      </div>
+    </form>
+    <!-- <h1>GREATNESS LIES AHEAD</h1> -->
+    <!-- <button type="button" class="btn-request-data">REQUEST DATA</button> -->
+
+    <header class="header" id="header">
+      <div class="username-info">
+        <div class="username-online">
+          <span class="my-name">Loading...</span>
+          <span class="online-indicator" aria-disabled="false">🟢 STATUS</span>
+        </div>
+        <p class="account-created">Account created -- years ago.</p>
+      </div>
+      <div class="social-link-list">
+        <a
+          rel="noreferrer noopener"
+          href="https://steamcommunity.com/profiles/76561198091780294/"
+          title="steam link"
+          class="social-link-item"
+          target="_blank"
+          ><ion-icon name="logo-steam" class="social-link-icon"></ion-icon
+        ></a>
+        <a
+          rel="noreferrer noopener"
+          href="https://twitter.com/TheMaxPorter"
+          title="twitter link"
+          class="social-link-item"
+          target="_blank"
+          ><ion-icon name="logo-twitter" class="social-link-icon"> </ion-icon
+        ></a>
+        <a
+          rel="noreferrer noopener"
+          href="https://www.twitch.tv/maxabajillion"
+          title="twitch link"
+          class="social-link-item"
+          target="_blank"
+          ><ion-icon name="logo-twitch" class="social-link-icon"></ion-icon
+        ></a>
+
+        <a
+          rel="noreferrer noopener"
+          href="https://www.youtube.com/@maxabajillion"
+          title="youtube link"
+          class="social-link-item"
+          target="_blank"
+        >
+          <ion-icon name="logo-youtube" class="social-link-icon"></ion-icon
+        ></a>
+      </div>
+    </header>
+    <main class="main" id="main">
+      <!-- game content -->
+      <p class="owned-games-title">TOP PLAYED GAMES</p>
+      <section class="section section--games-list">
+        <div class="game-item">
+          <div class="game-item--bg-img placeholder-img"></div>
+          <h3 class="game-title">Loading Game...</h3>
+          <div class="more-game-info">
+            <p class="info-game-playtime">-- hours -- minutes</p>
+            <p class="info-game-last-played">Last played -- days ago</p>
+            <p class="info-game-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit
+              reiciendis molestiae necessitatibus iure ipsum vitae fuga, labore
+              maxime aliquam ab!
+            </p>
+            <a
+              rel="noreferrer noopener"
+              href="https://store.steampowered.com/app/gameId"
+              class="info-game-storepage"
+              target="_blank"
+              >---- Store Page</a
+            >
+          </div>
+        </div>
+        <div class="game-item">
+          <div class="game-item--bg-img placeholder-img"></div>
+          <h3 class="game-title">Loading Game...</h3>
+          <div class="more-game-info">
+            <p class="info-game-playtime">-- hours -- minutes</p>
+            <p class="info-game-last-played">Last played -- days ago</p>
+            <p class="info-game-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit
+              reiciendis molestiae necessitatibus iure ipsum vitae fuga, labore
+              maxime aliquam ab!
+            </p>
+            <a
+              rel="noreferrer noopener"
+              href="https://store.steampowered.com/app/gameId"
+              class="info-game-storepage"
+              target="_blank"
+              >---- Store Page</a
+            >
+          </div>
+        </div>
+        <div class="game-item">
+          <div class="game-item--bg-img placeholder-img"></div>
+          <h3 class="game-title">Loading Game...</h3>
+          <div class="more-game-info">
+            <p class="info-game-playtime">-- hours -- minutes</p>
+            <p class="info-game-last-played">Last played -- days ago</p>
+            <p class="info-game-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit
+              reiciendis molestiae necessitatibus iure ipsum vitae fuga, labore
+              maxime aliquam ab!
+            </p>
+            <a
+              rel="noreferrer noopener"
+              href="https://store.steampowered.com/app/gameId"
+              class="info-game-storepage"
+              target="_blank"
+              >---- Store Page</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
