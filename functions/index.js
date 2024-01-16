@@ -1,5 +1,6 @@
 const functions = require("firebase-functions");
 const steamKey = require("./localSecrets.config").key;
+const cors = require("cors");
 
 const API_KEY = functions?.config()?.config?.key ?? steamKey;
 const PROFILE_ID = `76561198091780294`;
@@ -45,13 +46,16 @@ const requestData = async function (url, req, res) {
         res.set("X-RateLimit-Remaining", MAX_REQUESTS - requests);
         res.set("X-RateLimit-Reset", TIME_PERIOD / 1000);
 
-        if (allowedOrigins.includes(origin)) {
-            res.set("no-cors", "true");
-            res.set("Access-Control-Allow-Origin", origin);
-        } else {
-            res.status(403).send("Origin not allowed");
-            return;
-        }
+        res.set("Access-Control-Allow-Origin", origin);
+        // if (allowedOrigins.includes(origin)) {
+        // } else {
+        //     res.status(403).send("Origin not allowed");
+        //     return;
+        // }
+
+        cors(req, res, () => {
+            res.send("I have CORS!");
+        });
         res.status(200).json(data);
     } catch (err) {
         console.error(`❌❌❌SOME ERROR HAPPENED: ${err}`);
