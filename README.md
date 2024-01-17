@@ -14,7 +14,7 @@ _This project has since been taken offline due to financial resons._
 
 ## Example
 
-![demo of website](./media\world-class-gamer.gif)
+![demo of website](./media/world-class-gamer.gif)
 
 ### I used api calls for:
 
